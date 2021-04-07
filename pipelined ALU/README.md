@@ -1,19 +1,25 @@
 # Pipelined process with ALU
 
-![ReadmeImages/Screen_Shot_2021-02-09_at_9.18.08_PM.png](ReadmeImages/Screen_Shot_2021-02-09_at_9.18.08_PM.png)
+## Pipeline stages
+- Input: Register addresses (rs1,rs2 and rd), ALU function (func) and a memory address (addr)
+- Stage 1: read from registers rs1 and rs2 and store in A and B
+- Stage 2: perform ALU operation and store in Z
+- Stage 3: write z into register rd
+- Stage 4: write z into memeory location addr
 
-### Assumptions
+## ALU function
+  0000: ADD
+  0001: SUB
+  0010: MUL
+  0011: SELA
+  0100: SELB
+  0101: AND
+  0110: OR
+  0111: XOR
+  1000: NEGA
+  1001: NEGB
+  1010: SRA
+  1011: SLA
 
-![ReadmeImages/Screen_Shot_2021-02-09_at_9.18.57_PM.png](ReadmeImages/Screen_Shot_2021-02-09_at_9.18.57_PM.png)
-
-### ALU function
-
-![ReadmeImages/Screen_Shot_2021-02-09_at_9.19.40_PM.png](ReadmeImages/Screen_Shot_2021-02-09_at_9.19.40_PM.png)
-
-### Pipeline diagram
-
-![ReadmeImages/Screen_Shot_2021-02-09_at_9.20.56_PM.png](ReadmeImages/Screen_Shot_2021-02-09_at_9.20.56_PM.png)
-
-### Clocking scheme
-
-![ReadmeImages/Screen_Shot_2021-02-09_at_9.22.30_PM.png](ReadmeImages/Screen_Shot_2021-02-09_at_9.22.30_PM.png)
+## Clocking
+A non-overlapping two-phase clock is used for the consecutive pipeline stages.
